@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="LoginActivity">
+    tools:context=".view.register.RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/signin"
+        android:text="@string/signup"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/birdonk"/>
@@ -21,25 +21,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/subtext"
+        android:text="@string/sub_signup"
         android:layout_marginTop="5dp"/>
 
     <EditText
-        android:id="@+id/usernameET"
+        android:id="@+id/fullNameET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/rounded_button_border"
+        android:background="@drawable/round_back_dark_blue"
         android:hint="   Enter your username"
-        android:drawableStart="@drawable/ic_email"
+        android:drawableStart="@drawable/ic_user"
         android:maxLines="1"
         android:inputType="text"
         android:textSize="16sp"
-        android:paddingStart="20dp"
+        android:paddingStart="15dp"
         android:paddingEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"
         />
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/round_back_dark_blue"
+        android:hint="   Enter your email"
+        android:drawableStart="@drawable/ic_email"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/mobileET"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/round_back_dark_blue"
+        android:hint="  Enter your phone Number"
+        android:drawableStart="@drawable/ic_mobile"
+        android:maxLines="1"
+        android:inputType="phone"
+        android:textSize="16sp"
+        android:paddingStart="15dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,7 +82,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button_border">
+        android:background="@drawable/round_back_dark_blue">
 
         <EditText
             android:id="@+id/passwordET"
@@ -55,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:hint="  Enter your password"
+            android:hint="   Enter your password"
             android:drawableStart="@drawable/ic_password"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
@@ -77,91 +112,54 @@
             />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/forgotPasswordBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="Forgot Password"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:textColor="@color/birdonk"
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signInBtn"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/button_primary"
-        android:text="@string/signin"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-
-
-        <View
-            android:layout_centerVertical="true"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#1A000000"
-            android:layout_toStartOf="@+id/orTxt"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"/>
-
-        <TextView
-            android:id="@+id/orTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OR"
-            android:layout_centerInParent="true"
-            android:textSize="12sp"
-            android:textColor="#80000000"/>
-
-        <View
-            android:layout_centerVertical="true"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#1A000000"
-            android:layout_toEndOf="@+id/orTxt"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"/>
-    </RelativeLayout>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signInWithGoogle"
-        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/round_back_dark_blue"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_back_dark_blue">
+
+        <EditText
+            android:id="@+id/conPasswordET"
+            android:layout_toStartOf="@+id/conPasswordIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="   Confirm your password"
+            android:drawableStart="@drawable/ic_password"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="16sp"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:id="@+id/conPasswordIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
+            android:padding="10dp"
+            android:src="@drawable/password_show"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_google"/>
+            android:layout_marginEnd="20dp"
+            />
+    </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Sign In with Google"
-            android:textColor="#E6000000"
-            android:textStyle="bold"/>
-    </com.google.android.gms.common.SignInButton>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_primary"
+        android:textColor="#FFFFFF"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -173,14 +171,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"/>
+            android:text="Already have an account?"/>
 
         <TextView
-            android:id="@+id/signUpBtn"
+            android:id="@+id/signInBtn"
             android:layout_marginStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup"
+            android:text="Sign In"
             android:textColor="@color/birdonk"
             android:textStyle="bold"/>
     </LinearLayout>

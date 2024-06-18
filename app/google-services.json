@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "69436942107",
+    "project_id": "skinsolve-97ce3",
+    "storage_bucket": "skinsolve-97ce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69436942107:android:7937c197cd0956d37c95be",
+        "android_client_info": {
+          "package_name": "com.project.skinsolve"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69436942107-ljktjb49q21l0a5s749u5lusp9u4287v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.skinsolve",
+            "certificate_hash": "9f69da2e5d5de8538405ab59b5d3fe14d6f0bd01"
+          }
+        },
+        {
+          "client_id": "69436942107-u09vb281buab01irna9p638rqasla4i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAHcGQ3Up_VrkwMY3nRbW-4-zDrOe6-TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69436942107-u09vb281buab01irna9p638rqasla4i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

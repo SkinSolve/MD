@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">SkinSolve</string>
-    <string name="Login"> Login </string>
+    <string name="signin"> Sign In </string>
+    <string name="signup"> Sign Up </string>
     <string name="history"> History </string>
-    <string name="subtext"> Welcome back! We\'re glad to have you back. </string>
+    <string name="google"> Continue with Google</string>
+    <string name="txt_welcome"> "Find solutions for your skin health with us!" </string>
+    <string name="subtxt_welcome"> "Explore our variety of skincare solutions. Join us now for a journey towards healthier, radiant skin!" </string>
+    <string name="sub_login"> Welcome back! We\'re glad to have you back. </string>
+    <string name="sub_signup">"Welcome back! We're glad to have you back."</string>
+    <string name="descskinsolve">skinsolve</string>
+
 </resources>
