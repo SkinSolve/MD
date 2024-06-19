@@ -1,21 +1,19 @@
-package com.Project.skinsolve
+package com.project.skinsolve.view.signup
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.Project.skinsolve.databinding.ActivityWelcomeBinding
-import com.project.skinsolve.view.login.LoginActivity
-import com.project.skinsolve.view.signup.RegisterActivity
+import com.Project.skinsolve.databinding.ActivityRegisterBinding
 
-class WelcomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWelcomeBinding
+class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
@@ -36,12 +34,18 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.loginButton.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+        binding.signUpBtn.setOnClickListener {
+            val email = binding.emailET.text.toString()
 
-        binding.registerButton.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            AlertDialog.Builder(this).apply {
+                setTitle("Yeah!")
+                setMessage("Akun dengan $email sudah terdaftar. Lanjutkan ke halaman login")
+                setPositiveButton("Lanjut") { _, _ ->
+                    finish()
+                }
+                create()
+                show()
+            }
         }
     }
 }

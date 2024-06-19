@@ -8,6 +8,10 @@
     <string name="subtxt_welcome"> "Explore our variety of skincare solutions. Join us now for a journey towards healthier, radiant skin!" </string>
     <string name="sub_login"> Welcome back! We\'re glad to have you back. </string>
     <string name="sub_signup">"Welcome back! We're glad to have you back."</string>
+    <string name="google_sign_in_client_id">69436942107-u09vb281buab01irna9p638rqasla4i2.apps.googleusercontent.com</string>
     <string name="descskinsolve">skinsolve</string>
+    <string name="sign_google">Sign In with Google</string>
+    <string name="logoutBtn">Logout</string>
+    <string name="logoutbtn">Logout</string>
 
 </resources>

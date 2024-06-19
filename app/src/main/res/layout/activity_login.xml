@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,18 +22,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/subtext"
+        android:text="@string/sub_login"
         android:layout_marginTop="5dp"/>
 
     <EditText
-        android:id="@+id/usernameET"
+        android:id="@+id/emailET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/rounded_button_border"
-        android:hint="   Enter your username"
+        android:hint="   Enter your email"
         android:drawableStart="@drawable/ic_email"
         android:maxLines="1"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -158,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Sign In with Google"
+            android:text="@string/sign_google"
             android:textColor="#E6000000"
             android:textStyle="bold"/>
     </com.google.android.gms.common.SignInButton>
@@ -184,4 +185,12 @@
             android:textColor="@color/birdonk"
             android:textStyle="bold"/>
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 </LinearLayout>
+</layout>
