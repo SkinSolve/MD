@@ -19,10 +19,9 @@ import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
 import androidx.credentials.exceptions.GetCredentialException
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.Project.skinsolve.R
 import com.project.skinsolve.pref.Result
-import com.Project.skinsolve.databinding.ActivityLoginBinding
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
@@ -30,6 +29,8 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.project.skinsolve.R
+import com.project.skinsolve.databinding.ActivityLoginBinding
 import com.project.skinsolve.pref.UserModel
 import com.project.skinsolve.view.ViewModelFactory
 import com.project.skinsolve.view.main.MainActivity
@@ -37,11 +38,8 @@ import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<LoginViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
+    private lateinit var viewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
-
     private lateinit var auth: FirebaseAuth
     private lateinit var progressBar: ProgressBar
 
@@ -53,6 +51,9 @@ class LoginActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         progressBar = findViewById(R.id.progressBar)
+
+        // Initialize ViewModel
+        viewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(LoginViewModel::class.java)
 
         binding.signInBtn.setOnClickListener {
             signIn()
@@ -102,9 +103,8 @@ class LoginActivity : AppCompatActivity() {
     private fun signIn() {
         val email = binding.emailET.text.toString()
         val password = binding.passwordET.text.toString()
-        val credentialManager = CredentialManager.create(this)
 
-        viewModel.login(email, password).observe(this@LoginActivity) { result: Result ->
+        viewModel.login(email, password).observe(this@LoginActivity) { result: Result<String> ->
             when (result) {
                 is Result.Loading -> showLoading(true)
                 is Result.Success<*> -> {
@@ -120,6 +120,12 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        handleGoogleSignIn()
+    }
+
+    private fun handleGoogleSignIn() {
+        val credentialManager = CredentialManager.create(this)
 
         val googleIdOption = GetGoogleIdOption.Builder()
             .setFilterByAuthorizedAccounts(false)
@@ -144,7 +150,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleSignIn(result: GetCredentialResponse) {
-        // Handle the successfully returned credential.
         when (val credential = result.credential) {
             is CustomCredential -> {
                 if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
@@ -155,12 +160,10 @@ class LoginActivity : AppCompatActivity() {
                         Log.e(TAG, "Received an invalid google id token response", e)
                     }
                 } else {
-                    // Catch any unrecognized custom credential type here.
                     Log.e(TAG, "Unexpected type of credential")
                 }
             }
             else -> {
-                // Catch any unrecognized credential type here.
                 Log.e(TAG, "Unexpected type of credential")
             }
         }

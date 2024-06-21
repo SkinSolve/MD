@@ -1,4 +1,4 @@
-package com.Project.skinsolve
+package com.project.skinsolve.view
 
 import android.content.Intent
 import android.os.Build

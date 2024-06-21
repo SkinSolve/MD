@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.Project.skinsolve"
+    namespace = "com.project.skinsolve"
     compileSdk = 34
 
     buildFeatures {
@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.Project.skinsolve"
+        applicationId = "com.project.skinsolve"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -60,9 +60,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.firebase:firebase-auth-ktx:21.0.2")
 
-    // uCrop
-    implementation("com.github.yalantis:ucrop:2.2.8")
-
     // Database
     implementation ("com.google.code.gson:gson:2.8.8")
     implementation("androidx.room:room-runtime:2.6.1")
@@ -75,6 +72,9 @@ dependencies {
     // DataStore
     implementation("androidx.datastore:datastore-core:1.0.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    //retrofit
+
 
     // CameraX
     implementation("androidx.camera:camera-camera2:1.2.3")

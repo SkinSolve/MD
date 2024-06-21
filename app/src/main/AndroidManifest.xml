@@ -26,16 +26,17 @@
             android:name="com.project.skinsolve.view.signup.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HistoryActivity"
+            android:name="com.Project.skinsolve.view.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name="com.project.skinsolve.view.WelcomeActivity"
             android:exported="false" />
         <activity
             android:name="com.project.skinsolve.view.login.LoginActivity"
             android:exported="false" />
+
         <activity
-            android:name="com.project.skinsolve.view.main.MainActivity"
+            android:name="com.project.skinsolve.view.splashscreen.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
